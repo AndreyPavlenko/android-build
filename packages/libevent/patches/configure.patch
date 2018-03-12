@@ -1,0 +1,39 @@
+--- configure.orig	2018-03-20 03:38:12.695342455 +0300
++++ configure	2018-03-20 03:38:51.556700808 +0300
+@@ -14120,21 +14120,16 @@
+ 
+ 
+ for ac_func in  \
+-  accept4 \
+   arc4random \
+   arc4random_buf \
+   eventfd \
+   epoll_create1 \
+   fcntl \
+-  getegid \
+-  geteuid \
+-  getifaddrs \
+   getnameinfo \
+   getprotobynumber \
+   gettimeofday \
+   inet_ntop \
+   inet_pton \
+-  issetugid \
+   mach_absolute_time \
+   mmap \
+   nanosleep \
+@@ -14145,14 +14140,12 @@
+   setenv \
+   setrlimit \
+   sigaction \
+-  signal \
+   splice \
+   strlcpy \
+   strsep \
+   strtok_r \
+   strtoll \
+   sysctl \
+-  timerfd_create \
+   umask \
+   unsetenv \
+   usleep \
