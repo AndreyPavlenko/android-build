@@ -6,6 +6,10 @@ if [ "$1" = all ]; then
   cd "$ANDROID_PACKAGE_ROOT/.."
   PACKAGES='zlib libiconv openssl curl libevent transmission' ./build.sh
   exit $?
+elif [ "$1" = allnodep ]; then
+  cd "$ANDROID_PACKAGE_ROOT/.."
+  PACKAGES='transmission' ./build.sh
+  exit $?
 fi
 
 TRANSMISSION_GIT_URL='https://github.com/AndreyPavlenko/transmission.git'
