@@ -2,8 +2,8 @@
 set -e
 
 : ${ANDROID_PACKAGES_ROOT:="$(cd $(dirname "$0") && pwd)"}
-: ${CONFIGS:='arm:14 arm:21 arm64:21 x86:14 x86_64:21'}
-: ${PACKAGES:='zlib libiconv openssl curl libevent transmission'}
+: ${CONFIGS:='arm:16 arm64:21 x86:16 x86_64:21'}
+: ${PACKAGES:='zlib openssl curl libevent transmission'}
 export ANDROID_PACKAGES_ROOT
 
 function build_packages() {
