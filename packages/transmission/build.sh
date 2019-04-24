@@ -4,7 +4,7 @@ ANDROID_PACKAGE_ROOT="$(cd $(dirname "$0") && pwd)"
 
 if [ "$1" = all ]; then
   cd "$ANDROID_PACKAGE_ROOT/.."
-  PACKAGES='zlib libiconv openssl curl libevent transmission' ./build.sh
+  PACKAGES='zlib openssl curl libevent transmission' ./build.sh
   exit $?
 elif [ "$1" = allnodep ]; then
   cd "$ANDROID_PACKAGE_ROOT/.."
@@ -49,6 +49,15 @@ cd ..
 cp -v libtransmission/*.h "$ANDROID_INSTALL_ROOT/usr/include/libtransmission"
 cp -v build/libtransmission/*.h "$ANDROID_INSTALL_ROOT/usr/include/libtransmission"
 rsync -av --exclude='*.am' --exclude='*.in' --exclude='*.scss' web "$ANDROID_INSTALL_ROOT/usr/share/transmission"
+
+WEB_CONTROL_URL="https://github.com/ronggang/twc-release/raw/master/src.tar.gz"
+WEB_CONTROL_DIR="$ANDROID_BUILD_ROOT/$ANDROID_PACKAGE_NAME/web-control"
+
+mkdir -p "$WEB_CONTROL_DIR"
+wget -O - "$WEB_CONTROL_URL" | tar -xz -C "$WEB_CONTROL_DIR"
+mv -v "$WEB_CONTROL_DIR/index.html" "$WEB_CONTROL_DIR/index.webcontrol.html"
+cp -rv "$WEB_CONTROL_DIR/"* "$ANDROID_INSTALL_ROOT/usr/share/transmission/web/"
+cp -v "$ANDROID_INSTALL_ROOT/usr/share/transmission/web/index.html" "$ANDROID_INSTALL_ROOT/usr/share/transmission/web/index.original.html"
 
 rm -f "$ANDROID_INSTALL_ROOT/usr/share/transmission/web/checksum.sha1"
 dir_checksum "$ANDROID_INSTALL_ROOT/usr/share/transmission/web"\

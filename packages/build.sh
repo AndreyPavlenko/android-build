@@ -2,7 +2,7 @@
 set -e
 
 : ${ANDROID_PACKAGES_ROOT:="$(cd $(dirname "$0") && pwd)"}
-: ${CONFIGS:='arm:16 arm64:21 x86:16 x86_64:21'}
+: ${CONFIGS:='arm:16 arm:21 arm64:21 x86:16 x86_64:21'}
 : ${PACKAGES:='zlib openssl curl libevent transmission'}
 export ANDROID_PACKAGES_ROOT
 
