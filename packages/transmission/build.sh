@@ -38,8 +38,6 @@ git checkout $BRANCH_NAME
 
 [ -f "$ANDROID_PACKAGE_PATCHES_DIR/dev.patch" ] && patch -p1 < "$ANDROID_PACKAGE_PATCHES_DIR/dev.patch"
 
-is_arm32 && build_opts='-DENABLE_LIGHTWEIGHT=ON'
-
 cmake_build $build_opts
 make_concurrent transmission
 

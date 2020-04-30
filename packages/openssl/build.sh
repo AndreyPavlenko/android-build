@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ANDROID_PACKAGE_VERSION='1.1.1b'
+ANDROID_PACKAGE_VERSION='1.1.1d'
 ANDROID_PACKAGE_DIST_LOCATION="https://www.openssl.org/source"
 
 ANDROID_PACKAGE_ROOT="$(cd $(dirname "$0") && pwd)"
@@ -21,7 +21,7 @@ case "$ANDROID_NDK_ARCH" in
     ;;
 esac
 
-OPENSSL_CONFIGURE_OPTS="--prefix=/usr no-shared  no-idea no-camellia no-seed no-bf no-cast no-rc2 no-md2 no-md4 no-mdc2 no-dsa no-ec no-ecdsa no-ecdh no-err no-engine no-tests no-unit-test no-external-tests no-dso no-dynamic-engine no-stdio zlib"
+OPENSSL_CONFIGURE_OPTS="--prefix=/usr no-shared  no-idea no-camellia no-seed no-bf no-cast no-rc2 no-md2 no-md4 no-mdc2 no-dsa no-err no-engine no-tests no-unit-test no-external-tests no-dso no-dynamic-engine no-stdio zlib"
 
 echo "OPENSSL_ANDROID_ABI=$OPENSSL_ANDROID_ABI"
 

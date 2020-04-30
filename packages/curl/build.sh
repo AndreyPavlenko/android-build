@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ANDROID_PACKAGE_VERSION='7.64.1'
+ANDROID_PACKAGE_VERSION='7.66.0'
 ANDROID_PACKAGE_DIST_LOCATION="https://curl.haxx.se/download"
 
 ANDROID_PACKAGE_ROOT="$(cd $(dirname "$0") && pwd)"
