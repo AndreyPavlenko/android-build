@@ -15,7 +15,6 @@ fi
 TRANSMISSION_GIT_URL='https://github.com/AndreyPavlenko/transmission.git'
 BRANCH_NAME='transmissionbtc'
 LIBS='libtransmission/libtransmission.a
-        third-party/*/lib/libutp.a
         third-party/*/lib/libdht.a
         third-party/*/lib/libb64.a
         third-party/*/lib/libnatpmp.a
@@ -37,6 +36,14 @@ git clean -fd && git reset --hard
 git checkout $BRANCH_NAME
 
 [ -f "$ANDROID_PACKAGE_PATCHES_DIR/dev.patch" ] && patch -p1 < "$ANDROID_PACKAGE_PATCHES_DIR/dev.patch"
+
+build_opts="$build_opts -DENABLE_TESTS=OFF -DENABLE_DAEMON=OFF -DINSTALL_DOC=OFF"
+
+if [ "$ANDROID_NDK_ARCH" = 'arm' ] || [ "$ANDROID_NDK_ARCH" = 'x86' ]; then
+  build_opts="$build_opts -DENABLE_UTP=OFF"
+else
+  LIBS="$LIBS third-party/*/lib/libutp.a"
+fi
 
 cmake_build $build_opts
 make_concurrent transmission
