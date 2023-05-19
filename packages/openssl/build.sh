@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ANDROID_PACKAGE_VERSION='1.1.1d'
+ANDROID_PACKAGE_VERSION='1.1.1h'
 ANDROID_PACKAGE_DIST_LOCATION="https://www.openssl.org/source"
 
 ANDROID_PACKAGE_ROOT="$(cd $(dirname "$0") && pwd)"
